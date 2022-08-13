@@ -1,0 +1,22 @@
+.card:hover {
+    transform: scale(1.03);
+    transition: all 300ms ease-in-out;
+    overflow: hidden;
+}
+
+.atc {
+    background-color: 'white';
+    border: '2px solid #D70F64';
+    color: '#D70F64';
+}
+
+.atc:hover {
+    background-color: '#D70F64';
+    border: '2px solid #D70F64';
+    color: white
+}
+
+.btn:focus {
+    outline: none;
+    box-shadow: none;
+}

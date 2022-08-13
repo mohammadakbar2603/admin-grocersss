@@ -1,0 +1,37 @@
+body {
+    /* margin: 90px 0 0px 0; */
+    overflow: 'visible'
+}
+
+.templateContainer {
+    margin: 10px 0 20px 0;
+
+}
+
+.authlabel {
+    margin-left: 10px;
+    text-align: right;
+    cursor: pointer;
+    color: black;
+}
+
+.authlabel:hover {
+    color: red;
+}
+
+
+.templateContainer>.searchInput_Container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.templateContainer>.searchInput_Container input {
+    width: 80%;
+    padding: 10px;
+    outline: none;
+    outline-color: white;
+    border-radius: 20px;
+    box-shadow: none;
+}
