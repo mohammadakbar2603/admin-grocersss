@@ -4,8 +4,6 @@ import Spinner from '../Spinner/Spinner';
 import Rider from './Rider';
 import { fetchRiders } from '../../redux/grocersssSlice';
 import { Table } from 'reactstrap';
-import Button from '@mui/material/Button';
-import { useState } from 'react';
 
 
 const Riders = () => {
@@ -19,8 +17,7 @@ const Riders = () => {
         dispatch(fetchRiders());
     }, [dispatch]);
 
-    const [modal, setModal] = useState(false);
-    const toggleModal = () => setModal(!modal);
+
 
 
     let riders = null;

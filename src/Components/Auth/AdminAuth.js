@@ -10,9 +10,6 @@ import Box from '@mui/material/Box';
 import { Button, FormControl, InputLabel, Input, InputAdornment, IconButton } from '@mui/material';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import Logo from '../../assets/grocersss.png';
-import PersonIcon from '@mui/icons-material/Person';
-import DeliveryDiningIcon from '@mui/icons-material/DeliveryDining';
-import MenuItem from '@mui/material/MenuItem';
 
 const AdminAuth = () => {
     const [val, setVal] = useState({

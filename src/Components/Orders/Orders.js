@@ -16,7 +16,6 @@ const Orders = () => {
         dispatch(fetchRiders());
     }, [dispatch]);
 
-
     let orders = null;
     if (data.orderErr) {
         orders = <p style={{
@@ -40,8 +39,8 @@ const Orders = () => {
             }}>You Have No Orders</p>
 
         } else {
-            orders = data.orders.slice(0).reverse().map(order => {
-                return <Order order={order} riders={data.riders} key={order.id} />
+            orders = data.orders.slice(0).reverse().map((order, index) => {
+                return <Order order={order} riders={data.riders} index={index} key={order.id} />
             })
         }
     }

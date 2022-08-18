@@ -1,17 +1,10 @@
 import React, { useState } from 'react';
-import { Card, Badge, CardBody, CardTitle, CardText, Modal, ModalHeader, ModalBody } from 'reactstrap';
+import { Modal, ModalHeader, ModalBody } from 'reactstrap';
 import Button from '@mui/material/Button';
-import { useNavigate } from "react-router-dom";
-import { useSelector, useDispatch } from 'react-redux';
 
 const Customer = props => {
 
-    let navigate = useNavigate();
     const [modal, setModal] = useState(false);
-
-    /*  useEffect(() => {
-         dispatch(fetchOrders());
-     }, [dispatch]); */
 
     const toggleModal = () => {
         setModal(!modal);

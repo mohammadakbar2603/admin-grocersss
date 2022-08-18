@@ -4,18 +4,12 @@ import Spinner from '../Spinner/Spinner';
 import Customer from './Customer';
 import { fetchCustomers, fetchOrders } from '../../redux/grocersssSlice';
 import { Table } from 'reactstrap';
-import Button from '@mui/material/Button';
-import { useState } from 'react';
-import { Modal, ModalBody, ModalHeader } from 'reactstrap';
 import './Customers.css';
 
 const Customers = () => {
     const data = useSelector((state) => {
         return state
     })
-
-    const [modal, setModal] = useState(false);
-    const toggleModal = () => setModal(!modal);
 
     const dispatch = useDispatch();
 
@@ -99,3 +93,4 @@ const Customers = () => {
 };
 
 export default Customers;
+//

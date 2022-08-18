@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-import { useCart } from "react-use-cart";
 import './ItemCard.css';
 import IconButton from '@mui/material/IconButton';
-import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import { useSnackbar } from 'notistack';
 import { ModalBody, Modal, Button, ModalHeader } from "reactstrap";
 import DeleteIcon from '@mui/icons-material/Delete';

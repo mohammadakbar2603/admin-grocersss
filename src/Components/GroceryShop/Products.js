@@ -5,13 +5,12 @@ import Top from './Top';
 import { SnackbarProvider } from 'notistack';
 import './Home.css';
 import { useState } from "react";
-import { Input, Alert } from 'reactstrap';
+import { Input } from 'reactstrap';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
-import axios from 'axios';
 import { useSelector, useDispatch, } from 'react-redux';
-import { loadProductData, productDataFailed, fetchProductData } from '../../redux/grocersssSlice'
+import { fetchProductData } from '../../redux/grocersssSlice'
 import Spinner from '../Spinner/Spinner';
 import Button from '@mui/material/Button';
 import { useNavigate } from "react-router-dom";

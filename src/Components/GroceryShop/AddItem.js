@@ -3,7 +3,6 @@ import { Formik } from 'formik';
 import { ModalBody, Modal, ModalHeader } from "reactstrap";
 import { Box, TextField } from '@mui/material';
 import AbcIcon from '@mui/icons-material/Abc';
-import { useSelector, useDispatch } from "react-redux";
 import axios from 'axios';
 import CategoryIcon from '@mui/icons-material/Category';
 import BorderColorIcon from '@mui/icons-material/BorderColor';
@@ -37,7 +36,6 @@ const AddItem = () => {
     )
 
     const isLoading = state.isLoading;
-    const isModalOpen = state.isModalOpen;
     //const modalMsg = state.modalMsg;
     const disableAddItem = state.disableAddItem;
 

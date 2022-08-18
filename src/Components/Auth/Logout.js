@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { Navigate } from 'react-router';
 import { useDispatch } from 'react-redux';
 import { authFailed, logout } from '../../redux/grocersssSlice';
-import { useCart } from 'react-use-cart';
 
 const Logout = () => {
     /* const { emptyCart } = useCart(); */

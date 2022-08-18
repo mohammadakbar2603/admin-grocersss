@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
 import { Card, Badge, CardBody, CardTitle, CardText, Modal, ModalHeader, ModalBody, Table } from 'reactstrap';
 import Button from '@mui/material/Button';
-import { useNavigate } from "react-router-dom";
 import DeleteIcon from '@mui/icons-material/Delete';
 import CloseIcon from '@mui/icons-material/Close';
 import axios from "axios";
 import { useSnackbar } from 'notistack';
-import Rider from '../Riders/Rider';
 
 const Order = props => {
-    let navigate = useNavigate();
     const [modal, setModal] = useState(false);
     const toggleModal = () => setModal(!modal);
 
@@ -33,6 +30,7 @@ const Order = props => {
         if (status === "Pending") return "warning";
         else if (status === "Completed") return "success";
         else if (status === "Processing") return "info";
+        else if (status === "Awaiting Confirmation") return "secondary";
         else return "danger";
 
     }
@@ -57,7 +55,8 @@ const Order = props => {
             <Card className='shadow' style={{ borderRadius: '10px' }}>
                 <CardBody>
                     <CardTitle className='row'>
-                        <div className='col-8 col-md-10'><h5>Order Id: {props.order.id}</h5></div>
+                        <div className='col-8 col-md-10'><h5>{props.index + 1}. Order Id: {props.order.id}</h5></div>
+
                         <div className='col-4 col-md-2'><span>Status: </span><Badge color={handleBadge(props.order.status)} pill>{props.order.status}</Badge></div>
                     </CardTitle>
                     <CardText
@@ -85,13 +84,13 @@ const Order = props => {
                                 </Button>
                             </div>
                             <div className='col-3'>
-                                <Button disabled={props.order.status === "Cancelled" || props.order.status === "Processing"} size='small' color="warning" variant="contained" onClick={toggleRiderModal/* () => navigate("/riders", { replace: true }) */}
+                                <Button disabled={props.order.status !== "Pending"} size='small' color="warning" variant="contained" onClick={toggleRiderModal/* () => navigate("/riders", { replace: true }) */}
                                     style={{ marginRight: '5px' }}
                                 >
                                     Assign Rider
                                 </Button>
 
-                                <Button disabled={props.order.status === "Cancelled"} variant="contained" color="primary" size="small" onClick={toggleCancelOrderModal}>
+                                <Button disabled={props.order.status === "Cancelled" || props.order.status === "Awaiting Confirmation" || props.order.status === "Completed"} variant="contained" color="primary" size="small" onClick={toggleCancelOrderModal}>
                                     Cancel Order
                                 </Button>
                             </div>
@@ -112,12 +111,14 @@ const Order = props => {
                     <ModalHeader className='row'>
                         {/* Order Id:{props.order.id} */}
                         <div className='col'><h5>Order Id: {props.order.id}</h5></div>
+
                         <div className='col' style={{ fontSize: '15px' }}><span>Status: </span><Badge color={handleBadge(props.order.status)} pill>{props.order.status}</Badge></div>
                     </ModalHeader>
                     <ModalBody>
                         <div className='row'>
                             <div>Customer ID: {props.order.userId}</div>
                             <div>Customer Name: {props.order.customer.name}</div>
+                            <div >Rider Id: {props.order.rider}</div>
                             <div className='col-12'>Purchased Items:</div>
                             <ul>{itemSummary}</ul>
 
@@ -161,7 +162,7 @@ const Order = props => {
                             <div> <Button
 
                                 onClick={() => Promise.all([
-                                    axios.patch("https://grocersss-d8d44-default-rtdb.firebaseio.com/orders/" + props.order.id + ".json", { status: 'Cancelled', rider: "None" }),
+                                    axios.patch("https://grocersss-d8d44-default-rtdb.firebaseio.com/orders/" + props.order.id + ".json", { status: 'Cancelled' }),
 
                                     props.riders.slice(0).reverse()
                                         .filter(rider => rider.userId === props.order.rider)
@@ -235,7 +236,7 @@ const Order = props => {
                                                                 axios.patch("https://grocersss-d8d44-default-rtdb.firebaseio.com/riderData/" + rider.id + ".json", { status: 'On Duty' })
                                                             ])
                                                                 .then(response => {
-                                                                    handleClickVariant('success');
+                                                                    enqueueSnackbar(rider.id + 'is assigned for the order', { variant: 'success' });
                                                                     toggleRiderModal();
                                                                 })}
                                                         /* onClick={() => axios.patch("https://grocersss-d8d44-default-rtdb.firebaseio.com/orders/" + props.order.id + ".json", { status: 'Processing' })

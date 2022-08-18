@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import { Modal, ModalHeader, ModalBody } from 'reactstrap';
 import Button from '@mui/material/Button';
-import { useNavigate } from "react-router-dom";
 
 const Rider = props => {
 
-    let navigate = useNavigate();
     const [modal, setModal] = useState(false);
     const toggleModal = () => setModal(!modal);
 
@@ -15,7 +13,7 @@ const Rider = props => {
             <td>{props.rider.userId}</td>
             <td>{props.rider.fname + " " + props.rider.lname}</td>
             <td>{props.rider.email}</td>
-            <td>{props.rider.status}</td>
+            <td style={props.rider.status === 'On Duty' ? { color: 'red', fontWeight: 'bold' } : { color: 'green', fontWeight: 'bold' }}>{props.rider.status}</td>
             <td>
                 <Button variant="outlined" size="small" /* style={{ backgroundColor: '#d70f64', border: 'none', color: 'white', }} */
                     onClick={toggleModal}
