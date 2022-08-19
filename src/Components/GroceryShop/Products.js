@@ -51,7 +51,7 @@ const Products = () => {
 
         setItems(updatedItems)
     }
-    document.title = "Home | GROCERSSS";
+    document.title = "Products | GROCERSSS Admin";
 
     let home = null;
     if (data.productDataErr) {

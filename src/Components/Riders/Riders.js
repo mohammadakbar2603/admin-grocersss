@@ -82,7 +82,7 @@ const Riders = () => {
                 )
         }
     }
-    document.title = "Riders | GROCERSSS";
+    document.title = "Riders | GROCERSSS Admin";
     return (
         <div style={{ marginTop: '20px' }}>
             {data.riderLoading ? <Spinner /> : riders}

@@ -1,0 +1,5 @@
+.admin:hover {
+    transform: scale(1.04);
+    transition: all 300ms ease-in-out;
+    overflow: hidden;
+}

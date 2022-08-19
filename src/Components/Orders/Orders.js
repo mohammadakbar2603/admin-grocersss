@@ -44,7 +44,7 @@ const Orders = () => {
             })
         }
     }
-    document.title = "Orders | GROCERSSS";
+    document.title = "Orders | GROCERSSS Admin";
     return (
         <div style={{ marginTop: '20px' }}>
             {data.orderLoading ? <Spinner /> : orders}

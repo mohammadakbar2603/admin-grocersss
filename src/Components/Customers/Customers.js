@@ -82,7 +82,7 @@ const Customers = () => {
         }
     }
 
-    document.title = "Customers | GROCERSSS";
+    document.title = "Customers | GROCERSSS Admin";
 
     return (
         <div className='container-fluid' style={{ marginTop: '20px' }}>
