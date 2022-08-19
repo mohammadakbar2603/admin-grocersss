@@ -38,17 +38,6 @@ const BarChart = (props) => {
         }]
     };
 
-    const config = {
-        type: 'bar',
-        data: data,
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    };
 
 
     Chart.register(CategoryScale);

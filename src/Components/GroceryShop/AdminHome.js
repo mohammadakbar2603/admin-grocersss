@@ -67,12 +67,13 @@ const AdminHome = () => {
     });
 
     //shob trending products desc order e nisi
+    // eslint-disable-next-line no-extend-native
     Array.prototype.byCount = function () {
         var itm, a = [], L = this.length, o = {};
         for (var i = 0; i < L; i++) {
             itm = this[i];
             if (!itm) continue;
-            if (o[itm] == undefined) o[itm] = 1;
+            if (o[itm] === undefined) o[itm] = 1;
             else ++o[itm];
         }
         for (var p in o) a[a.length] = p;
@@ -212,7 +213,7 @@ const AdminHome = () => {
                                 [...new Set(
                                     data.orders.slice(0).reverse().map(order => { return order.customer.name })
                                 )].slice(0, 4).map((customer, index) => {
-                                    return <RecentCustomer customer={customer} index={index}
+                                    return <RecentCustomer customer={customer} index={index} key={Math.random()}
                                     />
                                 })
                             }
