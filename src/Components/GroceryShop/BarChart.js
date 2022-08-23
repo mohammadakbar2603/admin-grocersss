@@ -10,7 +10,7 @@ const BarChart = (props) => {
     const data = {
         labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
         datasets: [{
-            label: 'Daily Sales',
+            label: 'No. of Orders',
             data: props.last7DaysPurchase,
             backgroundColor: [
                 'rgba(255, 99, 132, 1)',

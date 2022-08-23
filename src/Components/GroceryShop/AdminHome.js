@@ -21,13 +21,13 @@ const AdminHome = () => {
 
 
     //shob order kora products
-    var allOrderProducts = data.orders?.map(order => {
+    var allOrderProducts = data.orders?.filter(order => { return order.status === "Completed" }).map(order => {
         return order.items.map(item => { return item.title })
     });
 
     //shob order kora products er price
     var allOrderCostsArray = [];
-    allOrderCostsArray.push(data.orders?.map(order => {
+    allOrderCostsArray.push(data.orders?.filter(order => { return order.status === "Completed" }).map(order => {
         return parseFloat(order.price);
     }))
     //totalrevenue
@@ -35,7 +35,7 @@ const AdminHome = () => {
 
     const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     //shob order kora products er time,  allOrderCostsArray er kaaj tao ebhabe kora jeto, taile 2d array lagtona
-    var allOrderTimesArray = data.orders?.filter(order => { return new Date(order.orderTime).getTime() > (new Date().getTime() - 7 * 24 * 3600 * 1000) }).map(order => {
+    var allOrderTimesArray = data.orders?.filter(order => { return (new Date(order.orderTime).getTime() > (new Date().getTime() - 7 * 24 * 3600 * 1000)) && order.status === "Completed" }).map(order => {
         return days[new Date(order.orderTime).getDay()];
         // return new Date(order.orderTime).getDay();
     })
@@ -130,7 +130,7 @@ const AdminHome = () => {
             <div className='row container' style={{ margin: "10px", marginTop: '25px' }}>
                 <div className='admin p-2 d-inline shadow align-items-center ' style={{ backgroundColor: "#d70f64", color: "white", borderRadius: "7px", width: "18%", height: "100px", marginRight: '10px', }}>
                     <div><h4>Total Revenue</h4></div>
-                    <div className='h2'><PriceCheckIcon /> {parseFloat(totalRevenue).toFixed(2)}/-</div>
+                    <div className='h3'><PriceCheckIcon /> {parseFloat(totalRevenue).toFixed(2)}/-</div>
                 </div>
                 <div className='admin p-2 d-inline shadow align-items-center ' style={{ backgroundColor: "white", color: "#d70f64", borderRadius: "7px", width: "18%", height: "100px", marginRight: '10px', }}>
                     <div><h4>Total Customers</h4></div>
@@ -157,7 +157,7 @@ const AdminHome = () => {
             {/* for graphs */}
             <div className='row m-2' >
                 <div className='admin col-6 d-inline shadow align-items-center' style={{ borderRadius: '7px', width: '48%', marginRight: '35px' }}>
-                    <h4 style={{ color: '#d70f64', padding: '10px', marginBottom: '30px' }}>Total Orders Per Day (Past 7 Days)</h4>
+                    <h4 style={{ color: '#d70f64', padding: '10px', marginBottom: '30px' }}>Total Orders/Day (Past 7 Days)</h4>
                     <BarChart last7DaysPurchase={last7DaysPurchase} />
                 </div>
                 <div className='admin col-6 pb-2 shadow align-items-center' style={{ borderRadius: '7px', width: '48%' }}>

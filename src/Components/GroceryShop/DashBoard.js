@@ -16,14 +16,11 @@ const DashBoard = () => {
 
     let routes = null;
     routes = (<Routes>
-        {/* <Route path="/" element={<Home />} /> */}
-        {/*  <Route path="/" element={<DashBoard />} /> */}
         <Route path="/" element={<AdminHome />} />
         <Route path="/riders" element={<Riders />} />
         <Route path="/orders" element={<Orders />} />
         <Route path="/products" element={<Products />} />
         <Route path="/customers" element={<Customers />} />
-        {/* <Route path="/stats" element={<Stats />} /> */}
         <Route path="/logout" element={<Logout />} />
         <Route path="/additem" element={<AddItem />} />
         <Route path="*" element={<Navigate replace to="/" />} />
