@@ -45,7 +45,7 @@ const Customer = props => {
                                 <strong> Email:</strong>  {props.customer.email}
                             </div>
                             <div>
-                                <strong> Registration Time:</strong>  {props.customer.registered}
+                                <strong> Registration Time:</strong>  {new Date(props.customer.registered).toString()}
                             </div>
                             <div>
                                 <strong>Past Orders:</strong>

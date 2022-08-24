@@ -44,7 +44,7 @@ const Rider = props => {
                                 <strong> Email:</strong>  {props.rider.email}
                             </div>
                             <div>
-                                <strong> Registration Time:</strong>  {props.rider.registered}
+                                <strong> Registration Time:</strong>  {new Date(props.rider.registered).toString()}
                             </div>
 
                             <div className='text-start'>
