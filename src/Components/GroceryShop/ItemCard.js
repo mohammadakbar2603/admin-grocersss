@@ -1,19 +1,19 @@
 import React, { useState } from "react";
 import './ItemCard.css';
-import IconButton from '@mui/material/IconButton';
-import { useSnackbar } from 'notistack';
+//import IconButton from '@mui/material/IconButton';
+//import { useSnackbar } from 'notistack';
 import { ModalBody, Modal, Button, ModalHeader } from "reactstrap";
-import DeleteIcon from '@mui/icons-material/Delete';
+//import DeleteIcon from '@mui/icons-material/Delete';
 import CloseIcon from '@mui/icons-material/Close';
-import axios from "axios";
+//import axios from "axios";
 
 const ItemCard = (props) => {
 
-    const { enqueueSnackbar } = useSnackbar();
+    /*const { enqueueSnackbar } = useSnackbar();
 
-    const handleClickVariant = (variant) => {
+     const handleClickVariant = (variant) => {
         enqueueSnackbar(props.title + ' Deleted from the list!', { variant });
-    };
+    }; */
 
     const [modal, setModal] = useState(false);
     const toggleModal = () => setModal(!modal);
