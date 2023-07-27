@@ -31,9 +31,9 @@ const ItemCard = (props) => {
                 </div>
                 <div style={{ overflowY: 'hidden', width: '100%', height: '50px' }} className="card-footer row">
                     <p style={{ fontSize: '14px', paddingTop: '5px', fontWeight: 'bold' }} className="card-text col">BDT {props.price}
-                        <IconButton style={{ float: 'right', marginTop: '-8px', }} color="primary" aria-label="add to shopping cart" onClick={toggleDelItemModal}>
+                        {/* <IconButton style={{ float: 'right', marginTop: '-8px', }} color="primary" aria-label="add to shopping cart" onClick={toggleDelItemModal}>
                             <DeleteIcon style={{ color: "#D70F64" }} />
-                        </IconButton>
+                        </IconButton> */}
                     </p>
                 </div>
             </div >
@@ -45,11 +45,6 @@ const ItemCard = (props) => {
                         <div>Are you sure you want to delete {props.title}?</div>
                         <br />
                         <div> <Button
-                            onClick={() => axios.delete("https://grocersss-d8d44-default-rtdb.firebaseio.com/productData/" + props.item.id + ".json")
-                                .then(response => {
-                                    handleClickVariant('error');
-                                    toggleDelItemModal();
-                                })}
 
                             color="danger" style={{ marginRight: "10px" }} size="sm">
                             Delete <DeleteIcon />

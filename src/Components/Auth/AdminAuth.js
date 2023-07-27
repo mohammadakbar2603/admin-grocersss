@@ -216,6 +216,7 @@ const AdminAuth = () => {
             </div>
         )
     }
+    document.title = "Login | GROCERSSS Admin";
     return (
         <div >
             <div className='container' style={{ marginTop: '150px' }}>
