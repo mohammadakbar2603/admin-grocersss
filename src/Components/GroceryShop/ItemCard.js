@@ -44,11 +44,8 @@ const ItemCard = (props) => {
                     <div>
                         <div>Are you sure you want to delete {props.title}?</div>
                         <br />
-                        <div> <Button
+                        <div>
 
-                            color="danger" style={{ marginRight: "10px" }} size="sm">
-                            Delete <DeleteIcon />
-                        </Button>
                             <Button onClick={toggleDelItemModal} size="sm">
                                 Cancel <CloseIcon />
                             </Button></div>
